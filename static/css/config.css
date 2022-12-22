@@ -1,0 +1,109 @@
+/* Config */
+html {
+  font-size: var(--font-size-root);
+}
+
+body {
+  background-color: aliceblue;
+  color: var(--color-dark);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: bold;
+}
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+}
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+h4 {
+  font-size: var(--font-size-md);
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+}
+/* 
+section {
+  background: #fff;
+  width: 70%;
+  border-bottom-right-radius: 100%;
+  padding-bottom: 70px;
+} */
+form {
+  padding: 0px 35px;
+  border-radius: 4px;
+}
+input,
+textarea {
+  width: 55%;
+  margin-top: 25px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+  line-height: 2;
+  font-size: 16px;
+  background: #ecf0f1;
+  border: 2px solid rgba(216, 216, 216, 0.3);
+  border-radius: 6px;
+}
+input {
+  height: 50px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+textarea {
+  height: 120px;
+  padding-top: 10px;
+}
+button {
+  background-color: #d63031;
+  color: #fff;
+  padding: 10px 30px;
+  border: 0px;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 18px;
+  border-radius: 6px;
+}
+button:hover {
+  background-color: #e74c3c;
+}
+@media (max-width: 1000px) {
+  section {
+    width: 80%;
+  }
+  input,
+  textarea {
+    width: 60%;
+  }
+}
+@media (max-width: 575px) {
+  section {
+    width: 100%;
+    border-bottom-right-radius: 0%;
+  }
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  :root {
+    --font-size-xxl: 3.2rem;
+    --font-size-xl: 2.4rem;
+    --font-size-lg: 2.2rem;
+    --font-size-md: 1.6rem;
+    --font-size-sm: 1.6rem;
+  }
+}

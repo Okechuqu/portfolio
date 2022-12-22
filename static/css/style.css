@@ -1,0 +1,56 @@
+/* Imports */
+@import url("reset.css");
+@import url("variables.css");
+@import url("config.css");
+@import url("utilities.css");
+@import url("components.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+/* HERO */
+#section-profile {
+  padding-top: 14rem;
+  padding-bottom: 7rem;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+@media screen and (max-width: 768px) {
+  #section-profile .container {
+    text-align: center;
+  }
+
+  #section-profile .d-flex {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+}
+
+/* RECENT POSTS */
+#section-education {
+  background-color: var(--color-light-gainsboro);
+}
+
+@media screen and (max-width: 780px) {
+  .posts {
+    flex-wrap: wrap;
+  }
+}
+
+/* WORKS */
+#section-skills {
+  padding-bottom: 5rem;
+}

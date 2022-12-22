@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    <title>Find-Me | Contact</title>
+  </head>
+  <body>
+    <header id="nav">
+      <a href="/" class="logo"
+        ><img
+          style="width: 40%; border-radius: 10%"
+          src="{% static '/images/download.png' %}"
+          alt=""
+      /></a>
+      <nav id="navbar" class="navbar d-flex justify-end">
+        <div class="btn">
+          <i class="fas fa-times close-btn"></i>
+        </div>
+        <a href="/#section-profile" class="active">Profile</a>
+        <a href="/#section-education">Education</a>
+        <a href="/#section-skills">Skills</a>
+        <a href="/#section-interest">Interest</a>
+        <a href="/#section-experience">Experiences</a>
+        <a href=".">Contact</a>
+      </nav>
+      <div class="btn">
+        <i class="fas fa-bars menu-btn"></i>
+      </div>
+    </header>
+    <section id="section-profile">
+      <div class="container justify-end">
+        <h3>CONTACT ME</h3>
+        <p>Send me a mail without stress</p>
+
+        <form method="POST" action=".">
+          {% csrf_token %} {{ form }}
+          <br />
+          <br />
+          <button type="submit" name="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="icon-group">
+          <a href="https://www.facebook.com/okechuqu/"
+            ><i class="fab fa-facebook-square"></i
+          ></a>
+          <a href="https://www.instagram.com/official_okechuqu/"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://twitter.com/Okechuqu"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/chukwu-emmanuel-935b73189/"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+        <p>Copyright © 2022 All rights reserved</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'main.js'%}"></script>
+  </body>
+</html>

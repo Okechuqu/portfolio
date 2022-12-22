@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    <title>Find-Me</title>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header id="nav">
+      <a href="/" class="logo"
+        ><img
+          style="width: 40%; border-radius: 10%"
+          src="{% static '/images/download.png' %}"
+          alt=""
+      /></a>
+      <nav id="navbar" class="navbar d-flex justify-end">
+        <div class="btn">
+          <i class="fas fa-times close-btn"></i>
+        </div>
+        <a href="#section-profile" class="active">Profile</a>
+        <a href="#section-education">Education</a>
+        <a href="#section-skills">Skills</a>
+        <a href="#section-interest">Interest</a>
+        <a href="#section-experience">Experiences</a>
+        <a href="form">Contact</a>
+      </nav>
+      <div class="btn">
+        <i class="fas fa-bars menu-btn"></i>
+      </div>
+    </header>
+    <!-- SECTION PROFILE -->
+    <section id="section-profile">
+      <div class="container">
+        {% for obj in object_list %}
+        <div class="d-flex justify-between">
+          <div class="hero-text">
+            <h1>{{ obj.title }}</h1>
+            {% filter linebreaks %}
+            <p>{{ obj.description | linebreaksbr }}</p>
+            {% endfilter%}
+          </div>
+
+          <div class="hero-img">
+            <img src="{{ obj.thumbnail.url }}" alt="" />
+          </div>
+        </div>
+        <center>
+          <a href="form">
+            <button class="btn-primary" id="hire">Hire Me</button>
+          </a>
+        </center>
+      </div>
+      {% endfor %}
+    </section>
+
+    <!-- SECTION EDUCATION -->
+    <section id="section-education">
+      <div class="container">
+        <heads class="section-header d-flex justify-between">
+          <h4>EDUCATIONAL BACKGROUND</h4>
+        </heads>
+        <div class="posts">
+          {% for pri in object_listPri %}
+          <a href="/" class="">
+            <h3 class="post-title">PRIMARY SCHOOL</h3>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Year</th>
+              </tr>
+
+              <tr>
+                <td>{{ pri.name }}</td>
+                <td>{{ pri.year }}</td>
+              </tr>
+            </table>
+          </a>
+        </div>
+        {% endfor %}
+        <div class="posts">
+          {% for sec in object_listSec %}
+          <a href="/" class="">
+            <h3 class="post-title">SECONDARY SCHOOL</h3>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Year</th>
+              </tr>
+
+              <tr>
+                <td>{{ sec.name }}</td>
+                <td>{{ sec.year }}</td>
+              </tr>
+            </table>
+          </a>
+        </div>
+        {% endfor %}
+        <div class="posts">
+          {% for tet in object_listTet %}
+          <a href="/" class="">
+            <h3 class="post-title">TETIARY INSTITUTIONS</h3>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Year</th>
+              </tr>
+
+              <tr>
+                <td>{{ tet.name }}</td>
+                <td>{{ tet.year }}</td>
+              </tr>
+            </table>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- SECTION SKILLS -->
+    <section id="section-skills">
+      <div class="container">
+        <heads class="section-header d-flex">
+          <h4>SKILLS</h4>
+        </heads>
+
+        <div class="work d-flex align-start">
+          {% for ski1 in object_listSki_1 %}
+          <div class="work-img">
+            <img src="{{ ski1.thumbnail.url }}" alt="" />
+          </div>
+          <div class="work-content">
+            <h2 class="work-title">{{ ski1.title }}</h2>
+            <div class="work-info d-flex">
+              <a href="form"><p class="work-info-year">Web-Dev</p></a>
+            </div>
+            {% filter linebreaks %}
+            <p class="work-info-subtitle">
+              {{ ski1.description | linebreaks }}
+            </p>
+            {%endfilter%}
+          </div>
+        </div>
+        {% endfor %}
+
+        <div href="form" class="work d-flex align-start">
+          {% for ski2 in object_listSki_2 %}
+          <div class="work-content">
+            <h2 class="work-title">{{ ski2.title }}</h2>
+            <div class="work-info d-flex">
+              <a href="form"><p class="work-info-year">FootWears</p></a>
+            </div>
+            {% filter linebreaks %}
+            <p class="work-info-subtitle">
+              {{ ski2.description | linebreaks }}
+            </p>
+            {%endfilter%}
+          </div>
+          <div class="work-img">
+            <img src="{{ ski2.thumbnail.url }}" alt="" />
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="work d-flex align-start">
+          {% for ski3 in object_listSki_3 %}
+          <div class="work-img">
+            <img src="{{ ski3.thumbnail.url }}" alt="" />
+          </div>
+          <div class="work-content">
+            <h2 class="work-title">{{ ski3.title }}</h2>
+            <div class="work-info d-flex">
+              <a href="form"
+                ><p class="work-info-year">Plumbing & Electrical</p></a
+              >
+            </div>
+            {% filter linebreaks %}
+            <p class="work-info-subtitle">
+              {{ ski3.description | linebreaks }}
+            </p>
+            {%endfilter%}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- SECTION INTEREST -->
+    <section id="section-interest">
+      <div class="container">
+        <h3>INTERESTS</h3>
+        {% for int in object_listInt %}
+        <h6>{{ int.title }}</h6>
+        {% filter linebreaks %}
+        <p>{{ int.description | linebreaksbr }}</p>
+        {%endfilter%}
+      </div>
+      {% endfor %}
+    </section>
+    &nbsp;<br />
+    &nbsp;<br />
+
+    <!-- SECTION EXPERIENCE -->
+    <section id="section-experience">
+      <div class="container">
+        <h3>EXPERIENCES</h3>
+        {% for exp in object_listExp %}
+        <h6>{{exp.title}}</h6>
+        {% filter linebreaks %}
+        <p>{{exp.description | linebreaksbr }}</p>
+        {%endfilter%}
+      </div>
+      {% endfor %}
+    </section>
+    <br />
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="container">
+        <div class="icon-group">
+          <a href="https://www.facebook.com/okechuqu/"
+            ><i class="fab fa-facebook-square"></i
+          ></a>
+          <a href="https://www.instagram.com/official_okechuqu/"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://twitter.com/Okechuqu"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/chukwu-emmanuel-935b73189/"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+        <p>Copyright © 2022 All rights reserved</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'main.js'%}"></script>
+  </body>
+</html>
